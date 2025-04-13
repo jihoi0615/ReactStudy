@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Title from "./components/Title";
+import ProductItem from "./components/Productitem";
+import Button from "./components/Button";
 
 const App = () => {
   return (
@@ -12,16 +14,10 @@ const App = () => {
         <main>
           <ul>
             <li>
-              <div className="ProductItem">
-                <div className="description">
-                  <h2>고소한 바질 파스타</h2>
-                  <div>6,000원</div>
-                  <button className="Button brand">주문하기</button>
-                </div>
-                <div className="thumbnail">
-                  <img src="./images/menu-고소한바질파스타.jpg" alt="고소한바질파스타 6,000원" />
-                </div>
-              </div>
+              <ProductItem name="고소한 바질 파스타" price="6,000원"></ProductItem>
+              <ProductItem name="김밥이 고소한 천국" price="6,000원"></ProductItem>
+              <Button styleType="brand">주문하기</Button>
+              <Button styleType="brand-solid">주문하기</Button>
             </li>
           </ul>
         </main>
