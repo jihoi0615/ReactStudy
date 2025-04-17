@@ -1,7 +1,5 @@
-import ProductPage from "./pages/ProductPage";
+import ProductPage from "./pages/ProductPage/ProductPage";
 
-const App = () => {
-  <ProductPage />;
-};
+const App = () => <ProductPage />;
 
 export default App;
