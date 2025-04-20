@@ -2,6 +2,7 @@ import Page from "@/components/Page";
 import Title from "../../components/Title";
 import Navbar from "../../components/Navbar";
 import OrderStatusCard from "@/pages/OrderPage/OrderStatusCard";
+import OrderDeliveryCard from "@/pages/OrderPage/OrderDeliveryCard";
 
 const OrderPage = () => {
   const fakeOrder = {
@@ -24,8 +25,8 @@ const OrderPage = () => {
     <div className="OrderPage">
       <Page header={<Title>주문내역</Title>} footer={<Navbar />}>
         <OrderStatusCard order={fakeOrder} />
-        {/* <OrderPaymentCard order={fakeOrder} />
-        <OrderDeliveryCard order={fakeOrder} /> */}
+        {/* <OrderPaymentCard order={fakeOrder} /> */}
+        <OrderDeliveryCard order={fakeOrder} />
       </Page>
     </div>
   );
