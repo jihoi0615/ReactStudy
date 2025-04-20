@@ -13,9 +13,9 @@ const OrderPaymentCard = ({ order }) => {
         </>
       }
       data={[
-        { term: "메뉴가격", description: productPrice },
-        { term: "배달료", description: deliveryPrice },
-        { term: "할인금액", description: discountPrice },
+        { term: "메뉴가격", description: `${productPrice}원` },
+        { term: "배달료", description: `${deliveryPrice}원` }, // 템플릿 리터럴: 더 최신 문법
+        { term: "할인금액", description: <>{discountPrice}원</> },
       ]}
     />
   );
