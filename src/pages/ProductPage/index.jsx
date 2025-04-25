@@ -4,6 +4,7 @@ import Page from "../../components/Page";
 import Title from "../../components/Title";
 import Navbar from "../../components/Navbar";
 import ProductList from "../../components/ProductList";
+import Modal from "@/components/Modal/Modal";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -26,6 +27,7 @@ const ProductPage = () => {
   return (
     <div className="ProductPage">
       <Page header={<Title>메뉴목록</Title>} footer={<Navbar />}>
+        <Modal />
         <ProductList products={products} />
       </Page>
     </div>
