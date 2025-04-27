@@ -1,34 +1,35 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Page from "../../components/Page";
-import Title from "../../components/Title";
-import Navbar from "../../components/Navbar";
-import ProductList from "../../components/ProductList";
+import { useEffect } from "react";
+
+import Title from "@/components/Title";
+import Navbar from "@/components/Navbar";
+import ProductList from "@/components/ProductList";
+import Page from "@/components/Page";
+
 import Modal from "@/components/Modal/Modal";
+import ModalContent from "@/components/Modal/ModalContent";
+// import { useModalStore } from "@/components/Modal/useModalStore";
+import OpenModalButton from "@/components/Modal/OpenModalButton";
+import OrderableProductItem from "@/pages/ProductPage/OrderableProductItem";
+import useProducts from "@/hooks/useProducts";
 
 const ProductPage = () => {
-  const [products, setProducts] = useState([]);
+  const { data: products = [], isSuccess, isLoading, isError } = useProducts();
+  // const openModal = useModalStore((state) => state.openModal);
   useEffect(() => {
-    axios
-      .get("https://dummyjson.com/products")
-      .then((res) => {
-        const refined = res.data.products.map((product) => ({
-          id: product.id,
-          name: product.title,
-          price: product.price,
-          thumbnail: product.thumbnail,
-        }));
-        setProducts(refined);
-      })
-      .catch((err) => {
-        console.error("상품 데이터를 불러오는데 실패했습니다.", err);
-      });
-  }, []);
+    if (isSuccess) {
+      alert("상품을 성공적으로 불러왔어요!");
+    }
+  }, [isSuccess]);
+
+  if (isLoading) return <div>로딩 중...</div>;
+  if (isError) return <div>상품 데이터를 불러오는데 실패했습니다.</div>;
+
   return (
     <div className="ProductPage">
+      <Modal />
       <Page header={<Title>메뉴목록</Title>} footer={<Navbar />}>
-        <Modal />
         <ProductList products={products} />
+        {/* <OrderableProductItem product={products} /> */}
       </Page>
     </div>
   );
