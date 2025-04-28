@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ block, styleType, children, onClick }) => {
+const Button = ({ form, block, styleType, children, onClick }) => {
   let className = "Button";
   if (styleType) {
     className += ` ${styleType}`; // 속성을 받기 위해서는 백틱 앞에 띄어쓰기
@@ -10,7 +10,7 @@ const Button = ({ block, styleType, children, onClick }) => {
   }
   return (
     // 위 Button에서 props 열고, <button> 자식에서 인자 받고
-    <button className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} form={form}>
       {children}
     </button>
   );
